@@ -9,16 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.c.practicerecyclerview3.R;
 import com.c.practicerecyclerview3.model.Avengers;
 import com.c.practicerecyclerview3.model.DC;
+import com.c.practicerecyclerview3.model.HeroModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    ArrayList<Object> allHeroes;
+    List<HeroModel> allHeroes;
 
     static int MARVEL = 1;
     static int DC = 2;
 
-    public MyAdapter(ArrayList<Object> allHeroes) {
+    public MyAdapter(List<HeroModel> allHeroes) {
         this.allHeroes = allHeroes;
     }
 
@@ -36,14 +38,14 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             if(holder.getItemViewType() == MARVEL) {
+                HeroModel avengersData = allHeroes.get(position);
                 MyViewHolder myViewHolder = (MyViewHolder) holder;
-                Avengers avengers = (Avengers)allHeroes.get(position);
-                myViewHolder.bind(avengers);
+                myViewHolder.bind(avengersData);
             }
             else{
+                HeroModel dcData = allHeroes.get(position);
                 MyDcViewHolder myDcViewHolder = (MyDcViewHolder) holder;
-                com.c.practicerecyclerview3.model.DC dc = (DC) allHeroes.get(position);
-                myDcViewHolder.bind(dc);
+                myDcViewHolder.bind(dcData);
             }
     }
 
@@ -54,7 +56,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemViewType(int position) {
-        if(allHeroes.get(position) instanceof Avengers){
+        if(allHeroes.get(position).getType().equals("Marvel")){
             return MARVEL;
        }
        else

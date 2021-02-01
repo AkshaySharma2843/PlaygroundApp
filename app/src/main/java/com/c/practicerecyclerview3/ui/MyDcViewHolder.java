@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.c.practicerecyclerview3.R;
 import com.c.practicerecyclerview3.model.DC;
+import com.c.practicerecyclerview3.model.HeroModel;
 
 public class MyDcViewHolder extends RecyclerView.ViewHolder {
     TextView hero_name;
@@ -25,9 +26,9 @@ public class MyDcViewHolder extends RecyclerView.ViewHolder {
         image = itemView.findViewById(R.id.imageView);
     }
 
-    public void bind(DC dc) {
-        hero_name.setText(dc.getHero_name());
-        real_name.setText(dc.getName());
+    public void bind(HeroModel dc) {
+        hero_name.setText(dc.getName());
+        real_name.setText(dc.getRealname());
         power.setText(dc.getPower());
 
         Glide.with(itemView.getContext())
