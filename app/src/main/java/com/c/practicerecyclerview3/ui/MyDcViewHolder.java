@@ -34,5 +34,5 @@ public class MyDcViewHolder extends RecyclerView.ViewHolder {
         Glide.with(itemView.getContext())
                 .load(dc.getImage())
                 .into(image);
+        }
     }
-}

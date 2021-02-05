@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@mipmap/ic_launcher"
+        app:showAsAction="ifRoom"
+        />
+
+    <item android:id="@+id/marvel"
+        android:title="Marvel Heroes"
+        android:icon="@mipmap/ic_launcher"
+        android:enabled="true"/>
+
+    <item android:id="@+id/dcheroes"
+        android:title="DC Heroes"
+        android:icon="@mipmap/ic_launcher"
+
+        android:enabled="true"/>
+
+    <item android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@mipmap/ic_launcher"
+
+        android:enabled="true"/>
+
+</menu>

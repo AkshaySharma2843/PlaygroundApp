@@ -1,22 +1,20 @@
-package com.c.practicerecyclerview3;
+package com.c.practicerecyclerview3.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.c.practicerecyclerview3.R;
 import com.c.practicerecyclerview3.data.HeroesApiServices;
 import com.c.practicerecyclerview3.data.RetrofitFactory;
-import com.c.practicerecyclerview3.model.Avengers;
-import com.c.practicerecyclerview3.model.DC;
 import com.c.practicerecyclerview3.model.HeroModel;
-import com.c.practicerecyclerview3.ui.MyAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -30,14 +28,20 @@ public class MainActivity extends AppCompatActivity {
     Retrofit retrofit;
     HeroesApiServices heroesApiServices;
     ProgressBar progressBar;
+    SharedPreferences sharedPreferences;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        createSharedPreferences();
         initView();
         fetchHeroesData();
+    }
+
+    private void createSharedPreferences() {
+        sharedPreferences = getSharedPreferences("hero_app_preference", MODE_PRIVATE);
     }
 
     private void fetchHeroesData() {
